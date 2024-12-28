@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KARE</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <main class="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-blue-700 to-blue-900">
+    <div class="max-w-md p-8 bg-white rounded-lg shadow-lg">
+      <div class="text-center mb-6">
+        <h1 class="text-3xl font-bold">KARE Inc.</h1>
+        <h2 class="text-3xl font-bold">Preserve Your Harvest</h2>
+      </div>
+      <p class="text-gray-600 mb-6">
+        Empowering farmers and enthusiasts alike, our innovative tool harnesses the power of advanced technology to
+               swiftly identify and combat plant diseases.
+               Seamlessly combining the realms of agriculture and technology.</p>
+      <center>
+        <form action="/onsubmit" method="POST" enctype="multipart/form-data" class="space-y-4">
+            <div class="relative overflow-hidden mb-4">
+                <!-- Input field -->
+                <input
+                  type="file"
+                  id="actual-btn"
+                  hidden
+                  name="image"
+                  class="absolute inset-0 opacity-0 cursor-pointer"
+                  aria-hidden="true"
+                />
+                <!-- Label for the input -->
+                <label for="actual-btn" class="block font-medium mb-1 cursor-pointer">
+                  Choose File
+                </label>
+                <!-- Line break -->
+                <br />
+                <!-- Placeholder text for selected file name -->
+                <span id="file-chosen" class="block text-gray-500">No file chosen</span>
+              </div>
+
+        <!-- End -->
+
+        <h6 class="text-center mb-4 text-muted">
+            Simply upload your plant's leaf image and enjoy
+             our service
+        </h6>
+
+        <!-- submi button -->
+        <center>
+            <a class="mx-2"><button type="submit" class="w-full bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button></a>
+        </center>
+    </form>
+</center>
+    </div>
+  </main>
+  <script>
+    const actualBtn = document.getElementById('actual-btn');
+
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name
+    })
+</script>
+</body>
+</html>
